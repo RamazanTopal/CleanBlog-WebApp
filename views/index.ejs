@@ -1,0 +1,52 @@
+<%- include('partials/_header') -%>
+
+<body>
+
+  <!-- Navigation -->
+  <%- include('partials/_navigation') -%>
+
+  <!-- Page Header -->
+  <%- include('partials/_pageheader') -%>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <% for (let i =0; i < blog.length; i++) { %>
+        <div class="post-preview">
+          <a href="/posts/<%= blog[i]._id %>">
+            <h2 class="post-title">
+              <%= blog[i].title %>
+            </h2>
+            <h3 class="post-subtitle">
+              <%= blog[i].detail %>
+            </h3>
+          </a>
+          <p class="post-meta">Posted date
+            <a href="#"> <%= blog[i].dateCreated %> </p>
+        </div>
+        <% } %>
+        <hr>
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <%- include('partials/_footer') -%>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
